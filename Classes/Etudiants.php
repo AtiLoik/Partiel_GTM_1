@@ -9,13 +9,7 @@
         private $date_naiss;
         
         public static function Créer_Etudiant($data, $pdo){
-            $req = $pdo-> prepare("Insert into Etudiant values (:nom, :prenom, :mail, :adresse, :telephone, :date_naiss)");
-            $req->bindParam(':nom', $data['nom'], PDO::PARAM_STR);
-            $req->bindParam(':prenom', $data['prenom'], PDO::PARAM_STR);
-            $req->bindParam(':mail', $data['mail'], PDO::PARAM_STR);
-            $req->bindParam(':adresse', $data['adresse'], PDO::PARAM_STR);
-            $req->bindParam(':telephone', $data['tel'], PDO::PARAM_INT);
-            $req->bindParam(':date_naiss', $data['date_naiss'], PDO::PARAM_STR);
+            $req = $pdo-> prepare("Insert into Etudiant values ('".$data['nom']."', '".$data['prenom']."', '".$data['mail']."', '".$data['adresse']."', ".$data['tel'].", '".$data['date_naiss']."')");
             $req->execute();
             
             return "Etudiant créé !";
