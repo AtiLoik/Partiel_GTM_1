@@ -10,4 +10,11 @@
 <a href="#">Lire les informations d'un étudiant</a></br>
 <a href="#">Modifier un étudiant</a></br>
 <a href="#">Supprimer un étudiant</a></br>
-<a href="#">Lister les étudiants</a></br>
+<a href="index.php?action=liste">Lister les étudiants</a></br>
+
+<?php
+    if((isset ($_GET['action']))=="liste")
+    {
+        include 'Vues/Liste_Etu.php';
+    }
+?>
