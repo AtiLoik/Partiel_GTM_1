@@ -13,8 +13,21 @@
 <a href="index.php?action=liste">Lister les étudiants</a></br>
 
 <?php
-    if((isset ($_GET['action']))=="liste")
+
+if(isset($_GET['action']))
+{
+    $action = $_GET['action'];
+    if($action == 'liste')
     {
-        include 'Vues/Liste_Etu.php';
+         include 'Vues/Liste_Etu.php';
     }
+    elseif($action == "detail")
+    {
+        include 'Vues/Detail_Etu.php';
+    }
+    elseif($action == "suppr")
+    {
+        include 'Vues/Suppr_etu.php';
+    }
+}
 ?>

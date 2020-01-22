@@ -24,7 +24,8 @@
         public static function Info_Etudiant($id, $pdo){
             $req = $pdo->prepare("Select * from etudiant where id = ".$id);
             $req->execute();
-            return $req;
+            $result = $req->fetchall();
+            return $result;
         }
         
         public static function Modifier_Etudiant($data, $pdo){
